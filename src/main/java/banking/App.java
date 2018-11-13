@@ -7,17 +7,19 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class banking {
+public class App {
 
 	public static void main(String[] args) {
 		System.out.println("Account Project");
-		
+
 		ObjectMapper objectMapper = new ObjectMapper();
-		person Faizan = new person("Faizan", "Zaheer");
-		service s = new service();
+		Person Faizan = new Person(1, "Faizan", "Zaheer");
+		Person Jason = new Person(2, "Jason", "Bourne");
+		Service s = new Service();
 		s.addUser(Faizan);
+		s.addUser(Jason);
 		try {
-			String personAsString = objectMapper.writeValueAsString(Faizan);
+			String personAsString = objectMapper.writeValueAsString(s.hmap);
 			System.out.println(personAsString);
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
@@ -29,7 +31,6 @@ public class banking {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	}
 
+	}
 }
